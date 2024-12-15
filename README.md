@@ -2,6 +2,7 @@
 
 A sleek and modern note-taking application built with Next.js, Firebase, and Tailwind CSS. Features include user authentication, real-time updates, dark/light theme, and organization with folders and tags.
 
+## Live Demo
 Visit the app: [https://giorgosmallis.github.io/Web-app/](https://giorgosmallis.github.io/Web-app/)
 
 ## Features
@@ -28,10 +29,12 @@ Visit the app: [https://giorgosmallis.github.io/Web-app/](https://giorgosmallis.
    ```bash
    git clone https://github.com/GiorgosMallis/Web-app.git
    ```
+
 2. Install dependencies:
    ```bash
    npm install
    ```
+
 3. Create a `.env.local` file with your Firebase configuration:
    ```
    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
@@ -41,10 +44,21 @@ Visit the app: [https://giorgosmallis.github.io/Web-app/](https://giorgosmallis.
    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
    NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
    ```
+
 4. Run the development server:
    ```bash
    npm run dev
    ```
+
+## Development
+
+The app is built using modern web technologies and follows best practices:
+
+- **Next.js**: For server-side rendering and static site generation
+- **Firebase**: For authentication and real-time database
+- **Tailwind CSS**: For responsive and modern UI design
+- **TypeScript**: For type safety and better developer experience
+- **Context API**: For state management
 
 ## License
 

@@ -1,0 +1,6 @@
+gh secret set NEXT_PUBLIC_FIREBASE_API_KEY --body "AIzaSyCTu_Bwa5465msaQy2g2dvlsg1V2F3l1N8"
+gh secret set NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN --body "mobile-web-app-be087.firebaseapp.com"
+gh secret set NEXT_PUBLIC_FIREBASE_PROJECT_ID --body "mobile-web-app-be087"
+gh secret set NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET --body "mobile-web-app-be087.firebasestorage.app"
+gh secret set NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID --body "977622636779"
+gh secret set NEXT_PUBLIC_FIREBASE_APP_ID --body "1:977622636779:web:c4aaff2362b15ea24bc6ae"

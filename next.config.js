@@ -5,6 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: process.env.NODE_ENV === 'production' ? '/Web-app' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Web-app/' : '',
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: false,
   webpack: (config) => {

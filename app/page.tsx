@@ -40,13 +40,14 @@ export default function Home() {
 
   const handleCreateNote = async (noteData: { title: string; content: string; folder?: string; tags?: string[] }) => {
     try {
+      const now = new Date();
       await createNote({
         title: noteData.title,
         content: noteData.content,
-        folder: noteData.folder,
-        tags: noteData.tags,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        folder: noteData.folder || 'default',
+        tags: noteData.tags || [],
+        createdAt: now,
+        updatedAt: now
       });
       setIsCreating(false);
     } catch (error) {

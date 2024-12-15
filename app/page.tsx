@@ -41,9 +41,12 @@ export default function Home() {
   const handleCreateNote = async (noteData: { title: string; content: string; folder?: string; tags?: string[] }) => {
     try {
       await createNote({
-        ...noteData,
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
+        title: noteData.title,
+        content: noteData.content,
+        folder: noteData.folder,
+        tags: noteData.tags,
+        createdAt: new Date(),
+        updatedAt: new Date()
       });
       setIsCreating(false);
     } catch (error) {
@@ -56,7 +59,7 @@ export default function Home() {
     try {
       await updateNote(selectedNote.id, {
         ...noteData,
-        updatedAt: Date.now(),
+        updatedAt: new Date(),
       });
       setSelectedNote(null);
     } catch (error) {

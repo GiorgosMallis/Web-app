@@ -2,6 +2,8 @@
 
 A sleek and modern note-taking application built with Next.js, Firebase, and Tailwind CSS. Features include user authentication, real-time updates, dark/light theme, and organization with folders and tags.
 
+Visit the app: [https://giorgosmallis.github.io/Web-app/](https://giorgosmallis.github.io/Web-app/)
+
 ## Features
 
 - 🔐 User Authentication with Firebase
@@ -23,6 +25,9 @@ A sleek and modern note-taking application built with Next.js, Firebase, and Tai
 ## Getting Started
 
 1. Clone the repository
+   ```bash
+   git clone https://github.com/GiorgosMallis/Web-app.git
+   ```
 2. Install dependencies:
    ```bash
    npm install
@@ -40,10 +45,6 @@ A sleek and modern note-taking application built with Next.js, Firebase, and Tai
    ```bash
    npm run dev
    ```
-
-## Deployment
-
-The app is deployed on GitHub Pages. Visit [add-your-github-pages-url-here] to see it in action.
 
 ## License
 

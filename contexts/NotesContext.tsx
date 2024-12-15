@@ -9,7 +9,7 @@ import { Note } from '../types/note';
 interface NotesContextType {
   notes: Note[];
   loading: boolean;
-  createNote: (title: string, content: string) => Promise<Note>;
+  createNote: (note: { title: string; content: string; folder?: string; tags?: string[] }) => Promise<Note>;
   updateNote: (id: string, title: string, content: string) => Promise<void>;
   deleteNote: (id: string) => Promise<void>;
   error: string | null;
@@ -52,30 +52,43 @@ export function NotesProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const createNote = async (title: string, content: string): Promise<Note> => {
+  const createNote = async ({ title, content, folder = 'default', tags = [] }: { 
+    title: string; 
+    content: string; 
+    folder?: string; 
+    tags?: string[] 
+  }): Promise<Note> => {
+    if (!user) {
+      throw new Error('Must be logged in to create notes');
+    }
+
     try {
-      const newNote = {
+      const now = new Date();
+      const noteData = {
         title,
         content,
-        userId: user?.uid || 'anonymous',
-        createdAt: Timestamp.now(),
-        updatedAt: Timestamp.now(),
+        folder,
+        tags,
+        userId: user.uid,
+        createdAt: Timestamp.fromDate(now),
+        updatedAt: Timestamp.fromDate(now),
       };
 
-      const docRef = await addDoc(collection(db, 'notes'), newNote);
-      
-      const createdNote = {
+      const docRef = await addDoc(collection(db, 'notes'), noteData);
+      const newNote = {
         id: docRef.id,
-        ...newNote,
-        createdAt: newNote.createdAt.toDate(),
-        updatedAt: newNote.updatedAt.toDate(),
-      } as Note;
-      
-      setNotes(prevNotes => [createdNote, ...prevNotes]);
-      return createdNote;
+        ...noteData,
+        createdAt: now,
+        updatedAt: now,
+      };
+
+      setNotes(prevNotes => [...prevNotes, newNote]);
+      setError(null);
+      return newNote;
     } catch (err) {
       console.error('Error creating note:', err);
-      throw new Error('Failed to create note');
+      setError('Failed to create note');
+      throw err;
     }
   };
 

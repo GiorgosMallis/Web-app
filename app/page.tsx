@@ -40,15 +40,7 @@ export default function Home() {
 
   const handleCreateNote = async (noteData: { title: string; content: string; folder?: string; tags?: string[] }) => {
     try {
-      const now = new Date();
-      await createNote({
-        title: noteData.title,
-        content: noteData.content,
-        folder: noteData.folder || 'default',
-        tags: noteData.tags || [],
-        createdAt: now,
-        updatedAt: now
-      });
+      await createNote(noteData);
       setIsCreating(false);
     } catch (error) {
       console.error('Error creating note:', error);
